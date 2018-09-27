@@ -1,0 +1,4 @@
+var min = 4;
+var max = 9;
+var some = (min + max) / 2;
+print some;

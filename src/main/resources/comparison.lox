@@ -1,0 +1,8 @@
+1 < 1;
+1 <= 1;
+10 > 5;
+10 >= 9;
+1 == 5;
+"Joey" != "Feebs";
+1 == "Oh noes dynamic type comparison..."
+1 == "1"
