@@ -51,13 +51,13 @@ class Lexer(sourceCode: String) {
 
             '"' -> matchString()
 
-             else -> {
-                 when {
-                     nextToken.isDigit() -> matchNumber()
-                     nextToken.isLetterOrUnderscore() -> matchIdentifier()
-                     else -> Lox.error(line, "Lexer found an unexpected character.")
-                 }
-             }
+            else -> {
+                when {
+                    nextToken.isDigit() -> matchNumber()
+                    nextToken.isLetterOrUnderscore() -> matchIdentifier()
+                    else -> Lox.error(line, "Lexer found an unexpected character.")
+                }
+            }
         }
     }
 
@@ -82,12 +82,12 @@ class Lexer(sourceCode: String) {
     }
 
     private fun matchString() {
-        while(peek() != '"' && !isAtEnd()) {
+        while (peek() != '"' && !isAtEnd()) {
             if (peek() == '\n') line++
             advance()
         }
 
-        if(isAtEnd()) {
+        if (isAtEnd()) {
             Lox.error(line, "Lexer found an unterminated string.")
             return
         }
@@ -106,7 +106,7 @@ class Lexer(sourceCode: String) {
 
         // comment
         if (match('/')) {
-            while(peek() != nextLineChar && !isAtEnd()) advance()
+            while (peek() != nextLineChar && !isAtEnd()) advance()
         }
         // division
         else {
@@ -165,7 +165,6 @@ class Lexer(sourceCode: String) {
 
     companion object {
         val keywords: Map<String, TokenType> = hashMapOf(
-                "and" to TokenType.AND,
                 "and" to TokenType.AND,
                 "class" to TokenType.CLASS,
                 "else" to TokenType.ELSE,
